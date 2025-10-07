@@ -2,18 +2,18 @@ import React from 'react';
 import { Github, GithubIcon } from 'lucide-react';
 import { House } from 'lucide-react';
 import Logo from '../assets/logo.png'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
 
     const links = <>
-        <NavLink to='/' className={({isActive}) => isActive ? 'underline' : ''}>
+        <NavLink to='/' className={({isActive}) => isActive ? 'underline text-[#632ee3] font-bold' : ''}>
             <ul className='flex'>
                 <li className='text-black'><House/></li>
                 <li className='m-2'>Home</li>
             </ul>
         </NavLink>
-        <NavLink to='/about' className={({isActive}) => isActive ? 'underline' : ''}><li className='m-2'>About</li></NavLink>
+        <NavLink to='/about' className={({isActive}) => isActive ? 'underline font-bold text-[#632ee3]' : ''}><li className='m-2'>About</li></NavLink>
     </>
 
     return (
@@ -31,7 +31,7 @@ const Navbar = () => {
         }
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"> <img className='h-8' src={Logo} alt="" /> HERO.IO</a>
+    <Link to='/'><a className="btn btn-ghost text-xl text-[#632ee3]"> <img className='h-8' src={Logo} alt="" /> HERO.IO</a></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
