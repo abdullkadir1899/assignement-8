@@ -43,7 +43,8 @@ const router = createBrowserRouter([
         },
         {
             path: '/installation',
-            element: <Installation/>
+            element: <Installation/>,
+            loader: () => fetch('/aboutData.json')
         },
         {
           path: '/shadowKing',

@@ -5,6 +5,9 @@ import star from '../../assets/icon-ratings.png'
 import lick from '../../assets/icon-review.png'
 import RatingData from './RatingData';
 import { toast } from 'react-toastify';
+import { addToStoredDB } from '../Installation/addToDB';
+
+
 
 
 const AppsDetails = () => {
@@ -13,15 +16,16 @@ const AppsDetails = () => {
     const data = useLoaderData()
     
     const singleApps = data.find(apps => apps.id === appsId);
-    const {title, size, reviews, ratingAvg, image, downloads, description, companyName, ratings} = singleApps
+    const {title, size, reviews,  ratingAvg, image, downloads, description,  companyName, ratings} = singleApps
     
 
     const [isInstalled, setIsInstalled] = useState(false);
 
 
-    const handleInstall = () => {
+    const handleInstall = (id) => {
             toast.success(`${title} installed successfully`)
-            setIsInstalled(true)       
+            setIsInstalled(true)
+            addToStoredDB(id)
     }
     
     return (
@@ -64,7 +68,7 @@ const AppsDetails = () => {
 
                         {/* install button */}
                         <div className='mt-5'>
-                            <button onClick={handleInstall} className='btn btn-success text-white font-semibold' >{isInstalled ? 'Installed' : `Install Now (${size} MB)`}</button>
+                            <button onClick={() => handleInstall(id)} className='btn btn-success text-white font-semibold' >{isInstalled ? 'Installed' : `Install Now (${size} MB)`}</button>
                         </div>
                         
                         
