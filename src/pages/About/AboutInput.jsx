@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutInput = ({aboutData}) => {
+const AboutInput = ({aboutData, setSearchTerm}) => {
   
     return (
         <div className='container mx-auto'>
@@ -20,7 +20,7 @@ const AboutInput = ({aboutData}) => {
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search" />
+  <input type="search" required placeholder="Search" onChange={(e) => setSearchTerm(e.target.value)} />
 </label>
                     </div>
                 </ul>
@@ -29,3 +29,6 @@ const AboutInput = ({aboutData}) => {
 };
 
 export default AboutInput;
+
+
+

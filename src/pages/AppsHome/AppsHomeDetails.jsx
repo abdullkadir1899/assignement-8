@@ -2,18 +2,11 @@ import { Download, Star } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router';
 
-const AllCard = ({data}) => {
-    const {image, downloads, title,id,  ratingAvg} = data
-
-  
-
+const AppsHomeDetails = ({data}) => {
+    const {image, title, downloads,id, ratingAvg} = data
     return (
-      <>
-
-
-
         <Link to={`/appsDetails/${id}`}>
-            <div className="card  border-2 shadow-2xl  h-full  bg-base-100 w-96 ">
+            <div className="card border-2 h-full  bg-base-100 w-96 shadow-sm">
   <figure>
     <img
       src={image}
@@ -38,12 +31,9 @@ const AllCard = ({data}) => {
        </div>
     </div>
   </div>
-        </div>
+            </div>
         </Link>
-
-      </>
-
     );
 };
 
-export default AllCard;
+export default AppsHomeDetails;

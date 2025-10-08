@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Download } from 'lucide-react';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router';
+import AppsHomeDetails from './AppsHomeDetails';
 
 const AppsHome = ({AppsPromise}) => {
     const data = use(AppsPromise)
@@ -12,34 +13,7 @@ const AppsHome = ({AppsPromise}) => {
 
             <div className='grid grid-cols-1 mt-20 gap-5   md:grid-cols-2 lg:grid-cols-4'>
                             {
-                data.map(d =>         <div  key={d.id} d={d}>
-            <div className="card border-2 h-full  bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img
-      src={d.image}
-      alt="Shoes" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">
-      {d.title}
-    </h2>
-    <div className="card-actions justify-between">
-       <div>
-        <ul className='flex gap-1 items-center'>
-            <li> <Download/></li>
-            <li>{d.downloads}</li>
-        </ul>
-       </div>
-       <div> 
-        <ul className='flex  gap-1 items-center '>
-            <li><Star/></li>
-            <li>{d.ratingAvg}</li>
-        </ul>
-       </div>
-    </div>
-  </div>
-            </div>
-        </div>)
+                data.map(data => <AppsHomeDetails data={data} key={data.id}></AppsHomeDetails>   )
             }
             </div>
 

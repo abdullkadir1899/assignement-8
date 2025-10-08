@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../../components/Footer';
 import Error from '../Error/Error';
+import AppNotFound from '../Error/AppNotFound';
 
 const Root = () => {
     return (
