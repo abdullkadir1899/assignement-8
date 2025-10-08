@@ -14,21 +14,23 @@ const router = createBrowserRouter([
     children: [
         {
             index: true,
-            element: <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
+            element: <Suspense fallback={<span className="loading loading-bars h-30  loading-xl"></span>}>
                 <Home></Home>
             </Suspense>,
         },
         {
-            path: '/about',
-            element: <About/>
-           
-        },
-        {
             path: '*',
             element: <Error />
+        },
+        {
+            path: '/about',
+            element: <About/>,
+            loader: () => fetch('/aboutData.json'),
+            
         }
     ]
-  },
+},
+
   
 ])
 

@@ -38,7 +38,7 @@ const AppsHome = ({AppsPromise}) => {
        </div>
     </div>
   </div>
-</div>
+            </div>
         </div>)
             }
             </div>
