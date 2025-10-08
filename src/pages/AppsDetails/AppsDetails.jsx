@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router';
 import download from '../../assets/icon-downloads.png'
 import star from '../../assets/icon-ratings.png'
 import lick from '../../assets/icon-review.png'
 import RatingData from './RatingData';
+import { toast } from 'react-toastify';
 
 
 const AppsDetails = () => {
@@ -13,6 +14,15 @@ const AppsDetails = () => {
     
     const singleApps = data.find(apps => apps.id === appsId);
     const {title, size, reviews, ratingAvg, image, downloads, description, companyName, ratings} = singleApps
+    
+
+    const [isInstalled, setIsInstalled] = useState(false);
+
+
+    const handleInstall = () => {
+            toast.success(`${title} installed successfully`)
+            setIsInstalled(true)       
+    }
     
     return (
         <div>
@@ -54,7 +64,7 @@ const AppsDetails = () => {
 
                         {/* install button */}
                         <div className='mt-5'>
-                            <button className='btn btn-success text-white font-semibold'>Install Now ({size} MB)</button>
+                            <button onClick={handleInstall} className='btn btn-success text-white font-semibold' >{isInstalled ? 'Installed' : `Install Now (${size} MB)`}</button>
                         </div>
                         
                         
@@ -84,3 +94,6 @@ const AppsDetails = () => {
 };
 
 export default AppsDetails;
+
+
+

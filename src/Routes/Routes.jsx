@@ -5,6 +5,8 @@ import Error from '../pages/Error/Error';
 import Root from '../pages/Root/Root';
 import About from '../pages/About/About';
 import AppsDetails from '../pages/AppsDetails/AppsDetails';
+import App from '../App';
+import Installation from '../pages/Installation/Installation';
 
 
 const router = createBrowserRouter([
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
                     element: <Error/>
                 }
             ]
+        },
+        {
+            path: '/installation',
+            element: <Installation/>
+        },
+        {
+          path: '/shadowKing',
+          element: <App/>
         }
 
     ]

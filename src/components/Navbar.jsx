@@ -13,7 +13,9 @@ const Navbar = () => {
                 <li className='m-2'>Home</li>
             </ul>
         </NavLink>
-        <NavLink to='/about' className={({isActive}) => isActive ? 'underline font-bold text-[#632ee3]' : ''}><li className='m-2'>About</li></NavLink>
+        <NavLink to='/about' className={({isActive}) => isActive ? 'underline font-bold text-[#632ee3]' : ''}><li className='m-2'>Apps</li></NavLink>
+        <NavLink to='/installation' className={({isActive}) => isActive ? 'underline font-bold text-[#632ee3]' : ''}><li className='m-2'>Installation</li></NavLink>
+
     </>
 
     return (
