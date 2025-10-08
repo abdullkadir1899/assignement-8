@@ -9,7 +9,7 @@ const HomeFile = () => {
                         <div>
                 <h1 className='lg:text-[72px] md:text-[30px] text-[30px] font-bold text-center mt-20 mb-5'>We Build <br /> <span className='text-[#9f62f2]'>Productive</span> Apps</h1>
                 <p className='text-5 text-gray-500 font-semibold text-center'>AtHERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting <br /> .Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
-                <ul className='flex gap-3 justify-center my-5'>
+                <ul className='flex gap-3 flex-col md:flex-row  justify-center my-5'>
                     <li><a href='https://play.google.com/store/games?hl=en'><button className='btn '><img src={play} alt="" />Google play stor</button></a></li>
                     <li><a href='https://www.apple.com/app-store/'><button className='btn '><img src={AppStore} alt="" />App Store</button></a></li>
                 </ul>
