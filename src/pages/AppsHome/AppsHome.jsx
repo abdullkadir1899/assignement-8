@@ -11,7 +11,7 @@ const AppsHome = ({AppsPromise}) => {
     return (
         <div className='container mx-auto'>
 
-            <div className='grid grid-cols-1 mt-20 gap-5   md:grid-cols-2 lg:grid-cols-4'>
+            <div className='grid grid-cols-1 mt-20 gap-5 p-4  md:grid-cols-2 lg:grid-cols-4'>
                             {
                 data.map(data => <AppsHomeDetails data={data} key={data.id}></AppsHomeDetails>   )
             }

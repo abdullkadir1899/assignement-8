@@ -48,7 +48,7 @@ const About = () => {
                                 </div>
                             ) : (
                                 filteredData.length > 0 ? (
-                                    <div className='grid my-10 gap-4 h-full grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                                    <div className='grid my-10 gap-4 h-full p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                     {
                         aboutData.map(data => <AllCard key={data.id} data={data}></AllCard>)
                     }

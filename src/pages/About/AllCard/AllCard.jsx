@@ -13,7 +13,7 @@ const AllCard = ({data}) => {
 
 
         <Link to={`/appsDetails/${id}`}>
-            <div className="card  border-2 shadow-2xl  h-full  bg-base-100 w-96 ">
+            <div className="card  shadow-2xl  h-full  bg-base-100 w-full ">
   <figure>
     <img
       src={image}

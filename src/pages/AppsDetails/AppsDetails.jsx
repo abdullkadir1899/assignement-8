@@ -29,7 +29,7 @@ const AppsDetails = () => {
     }
     
     return (
-        <div>
+        <div  className=' min-h-screen'>
             {/* apps details */}
             <div className='container mx-auto  mt-20 mb-10'>
                 <div className='flex gap-10 border-b-3 border-gray-300 p-5'>

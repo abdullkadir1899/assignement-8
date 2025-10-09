@@ -29,8 +29,11 @@ const Installation = () => {
         setAppsList(appsList)
     }, [data, isUpdated])
     
+
+
+
     return (
-        <div className='container mx-auto text-center my-20'>
+        <div className='container mx-auto text-center my-20 min-h-screen'>
             <InstallationHeader></InstallationHeader>
 
             <div>
