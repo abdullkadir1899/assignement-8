@@ -1,6 +1,7 @@
-// get Stored apps
+// addToDB.js
+
+// অ্যাপ ডেটা লোকাল স্টোরেজ থেকে নিয়ে আসে
 const getStoredApps = () => {
-    
     const storedAppSTR = localStorage.getItem('appsList');
 
     if(storedAppSTR) {
@@ -12,36 +13,39 @@ const getStoredApps = () => {
     }
 }
 
-// add app id to storage
+// অ্যাপ আইডি স্টোরেজে যোগ করে
 const addToStoredDB = (id) => {
 
     const storedAppsData = getStoredApps();
     
-    if(storedAppsData.includes(id)) {
-        alert('vhai ei id alrad')
+    if(storedAppsData.includes(id.toString())) { // ID স্ট্রিং হিসেবে চেক করা হলো
+        return 'already_added'; // স্ট্যাটাস রিটার্ন
     }
     else{
-        storedAppsData.push(id)
+        storedAppsData.push(id.toString()) // ID স্ট্রিং হিসেবে সেভ করা
         const data = JSON.stringify(storedAppsData);
         localStorage.setItem('appsList', data)
-        console.log(data)
+        return 'added_successfully'; // স্ট্যাটাস রিটার্ন
     }
 }
 
 
-// remove app id 
+// অ্যাপ আইডি রিমুভ করে
 const removeFromStoredDB = (id) => {
     const storedAppsData = getStoredApps();
 
-    const updatedData = storedAppsData.filter(appId => appId !== id);
+    const idToRemove = id.toString(); 
+    const updatedData = storedAppsData.filter(appId => appId !== idToRemove);
 
     if (updatedData.length === storedAppsData.length) {
-        alert('এই ID খুঁজে পাওয়া যায়নি!');
+        return 'not_found'; // স্ট্যাটাস রিটার্ন
     } else {
         localStorage.setItem('appsList', JSON.stringify(updatedData));
-        console.log('Removed:', id);
+        console.log('Removed:', idToRemove);
+        return 'removed_successfully'; // স্ট্যাটাস রিটার্ন
     }
 };
+
 
 export { addToStoredDB, getStoredApps, removeFromStoredDB }
 

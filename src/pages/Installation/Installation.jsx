@@ -1,24 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import InstallationHeader from './InstallationHeader';
 import { Download, Star } from 'lucide-react';
 import { useLoaderData } from 'react-router';
 import { getStoredApps } from './addToDB';
 import InstallationCard from './InstallationCard';
+import { ToastContainer } from 'react-toastify';
+
+
 
 
 const Installation = () => {
 
     const [AppsList, setAppsList] = useState([])
+    const [isUpdated, setIsUpdated] = useState(0);
 
     const data = useLoaderData();
-    console.log(data)
+    // console.log(data)
+
+    //cal
+    const handleUpdate = useCallback(() => {
+        setIsUpdated(p => p + 1)
+    }, []);
 
     useEffect(() => {
         const storedAppsData = getStoredApps()
         const ConvertedStoredApps = storedAppsData.map(id => parseInt(id))
         const appsList = data.filter(apps => ConvertedStoredApps.includes(apps.id))
         setAppsList(appsList)
-    }, [])
+    }, [data, isUpdated])
     
     return (
         <div className='container mx-auto text-center my-20'>
@@ -32,14 +41,17 @@ const Installation = () => {
             </div>
             {/* card */}
             {
-                AppsList.map(apps => <InstallationCard key={apps.id} apps={apps}></InstallationCard>)
+                AppsList.map(apps => <InstallationCard key={apps.id} apps={apps} onAppRemove={handleUpdate}></InstallationCard>)
             }
 
+           
         </div>
     );
 };
 
 export default Installation;
+
+
 
 
 

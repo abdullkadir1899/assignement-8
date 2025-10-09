@@ -1,8 +1,26 @@
 import { Download, Star } from 'lucide-react';
 import React from 'react';
+import { removeFromStoredDB } from './addToDB';
+import  toast  from 'react-hot-toast'; 
 
-const InstallationCard = ({apps}) => {
-    const {image, ratingAvg, downloads, size, title} = apps
+const InstallationCard = ({apps, onAppRemove}) => {
+    const {image, ratingAvg, downloads, size,id, title} = apps
+
+    const handleUninstall = () => {
+        const status = removeFromStoredDB(id)
+
+        if(status === 'removed_successfully') {
+            toast.success(`'${title}' success`)
+            
+            if(onAppRemove){
+                onAppRemove();
+            }
+        }
+        else if(status === 'not_found'){
+            toast.error('bol')
+        }
+    }
+
     return (
         <div className=' p-4 my-5 rounded-2xl shadow-2xl bg-gray-200'>
                 <div className='flex gap-5 justify-between items-center'>
@@ -30,7 +48,7 @@ const InstallationCard = ({apps}) => {
                         </ul>
                     </div>
                     <div>
-                        <button className='btn btn-primary'>Uninstall</button>
+                        <button onClick={handleUninstall} className='btn btn-primary'>Uninstall</button>
                     </div>
                 </div>
             </div>
@@ -38,3 +56,4 @@ const InstallationCard = ({apps}) => {
 };
 
 export default InstallationCard;
+
